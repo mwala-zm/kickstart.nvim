@@ -238,7 +238,7 @@ require('lazy').setup({
   --    require('Comment').setup({})
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',    opts = {} },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -273,7 +273,7 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
@@ -319,7 +319,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -626,6 +626,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         javascript = { 'prettier' },
+        typescript = { 'prettierd' },
         javascriptreact = { 'prettierd' },
         typescriptreact = { 'prettierd' },
         css = { 'prettierd' },
@@ -761,7 +762,7 @@ require('lazy').setup({
     enable = {
       terminal = true,
       legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-      migrations = true, -- Handle deprecated options automatically
+      migrations = true,        -- Handle deprecated options automatically
     },
     styles = {
       bold = true,
@@ -895,7 +896,38 @@ require('lazy').setup({
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
--- my stuff
+-- NOTE: ROR plugin for neovim
+--
+-- https://github.com/weizheheng/ror.nvim
+--
+require("ror").setup({
+  test = {
+    message = {
+      -- These are the default title for nvim-notify
+      file = "Running test file...",
+      line = "Running single test..."
+    },
+    coverage = {
+      -- To customize replace with the hex color you want for the highlight
+      -- guibg=#354a39
+      up = "DiffAdd",
+      -- guibg=#4a3536
+      down = "DiffDelete",
+    },
+    notification = {
+      -- Using timeout false will replace the progress notification window
+      -- Otherwise, the progress and the result will be a different notification window
+      timeout = false
+    },
+    pass_icon = "✅",
+    fail_icon = "❌"
+  }
+})
+
+vim.keymap.set("n", "<Leader>rc", ":lua require('ror.commands').list_commands()<CR>", { silent = true })
+
+-- NOTE: My custom keybindings
+--
 vim.keymap.set('i', 'jk', '<ESC>')
 vim.keymap.set('n', '<leader>fe', ':Neotree toggle<CR>')
 

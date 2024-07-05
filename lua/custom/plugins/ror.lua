@@ -1,3 +1,3 @@
 return {
-  -- { 'weizheheng/ror.nvim', lazy = false },
+  { 'weizheheng/ror.nvim', lazy = false },
 }
