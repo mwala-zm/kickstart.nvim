@@ -635,7 +635,7 @@ require('lazy').setup({
         yaml = { 'prettierd' },
         markdown = { 'prettier' },
         python = { 'isort', 'black' },
-        eruby = { 'erb_format' },
+        eruby = { 'prettierd' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
