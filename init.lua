@@ -626,9 +626,9 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         javascript = { 'prettier' },
-        typescript = { 'prettierd' },
+        -- typescript = { 'prettierd' },
         javascriptreact = { 'prettier' },
-        typescriptreact = { 'prettier' },
+        -- typescriptreact = { 'prettier' },
         css = { 'prettierd' },
         html = { 'prettierd' },
         json = { 'prettierd' },
@@ -759,16 +759,6 @@ require('lazy').setup({
     -- 'folke/tokyonight.nvim',
     'rose-pine/neovim',
     name = 'rose-pine',
-    enable = {
-      terminal = true,
-      legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-      migrations = true, -- Handle deprecated options automatically
-    },
-    styles = {
-      bold = true,
-      italic = true,
-      transparency = false,
-    },
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
